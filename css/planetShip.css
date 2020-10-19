@@ -1,0 +1,110 @@
+/*
+    FORMATOWANIE EKRANU POPUP OPISU STATKU NA PLANECIE
+*/
+
+
+/* formatowanie przycisku zatwierdzania dokonywania zakupów */
+button {
+    margin-top: 4%;
+    margin-left: 65%;
+    font-style: bold;
+}
+
+
+button:hover {
+    color: rgba(115, 62, 126);
+}
+
+
+/* formatowanie pola wpisywania ilości zakupionego towaru */
+input {
+    width: 40%;
+}
+
+
+/* formatowanie struktury popupu opisu planety (podział na poszczególne obszary) */
+.container4 {
+    display: grid;
+    grid-template-columns: 1% 20% 10% 28% 7% 30% 5%;
+    grid-template-rows: 12% 10% 3% 15% 22% 28% 10%;
+    grid-template-areas: 
+                         ". ships_name2 . . . shopping ."
+                         ". . . ships_items2 . shopping ."
+                         ". . . ships_items2 . shopping ."
+                         ". photo . ships_items2 . shopping ."
+                         ". photo . ships_items2 . . ."
+                         ". capacity2 . ships_items2 . traveling ."
+                         ". . . . . . .";
+    width: 100%;
+    height: 100%;
+}
+
+
+/* formatowanie obszaru popupu z nazwą statku */
+.ships_name_grid2 {
+    grid-area: ships_name2;
+    margin-left: 8%;
+}
+
+
+/* formatowanie obszaru popupu z danymi położenia */
+.capacity_grid2 {
+    grid-area: capacity2;
+    margin-left: 8%;
+}
+
+
+/* formatowanie obszaru popupu z listą towarów statku */
+.ships_items_grid2 {
+    grid-area: ships_items2;
+
+    background-color: rgba(115, 62, 126, 0.452);
+    border-top-left-radius: 12%;
+    border-top-right-radius: 12%;
+    border-bottom-left-radius: 12%;
+    border-bottom-right-radius: 12%;
+    box-shadow: 0 0 6px 6px rgb(224, 215, 226);
+    overflow: scroll;
+}
+
+
+/* formatowanie obszaru popupu do dokonywania zakupów */
+.shopping_grid {
+    grid-area: shopping;
+}
+
+
+/* formatowanie obszaru popupu do podróżowania */
+.traveling_grid {
+    grid-area: traveling;
+}
+
+
+/* formatowanie obszaru popupu ze zdjeciem */
+.photo_grid {
+    grid-area: photo;
+}
+
+
+/* dostosowanie wyglądu popupu opisu planety do urządzeń mobilnych */
+@media screen and (max-width: 1020px) {
+    .container4 {
+        display: grid;
+        grid-template-columns: 1% 20% 10% 28% 7% 30% 5%;
+        grid-template-rows: 12% 5% 8% 15% 25% 30% 5%;
+        grid-template-areas: 
+                            ". ships_name2 . . . shopping ."
+                            ". . . ships_items2 . shopping ."
+                            ". photo . ships_items2 . shopping ."
+                            ". . . ships_items2 . . ."
+                            ". . . ships_items2 . . ."
+                            ". capacity2 . ships_items2 . traveling ."
+                            ". . . . . . .";
+        width: 100%;
+        height: 100%;
+    }
+
+    .popup {
+        overflow: auto;
+    }
+}

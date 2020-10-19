@@ -1,0 +1,159 @@
+/*
+    FORMATOWANIE EKRANU POPUP OPISU PLANETY
+*/
+
+/* formatowanie overlay dla okienka popup */
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.75);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+    overflow: auto;
+}
+
+
+.overlay:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+
+/* formatowanie okienka popup */
+.popup {
+    margin: 5% auto;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.75);
+    border-radius: 5%;
+    width: 90%;
+    height: 76%;
+    position: relative;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 0 4px 4px rgb(224, 215, 226);
+}
+
+
+.popup .close {
+    position: absolute;
+    top: 2%;
+    right: 4%;
+    transition: all 200ms;
+    font-size: 4vh;
+    font-weight: bold;
+    text-decoration: none;
+    color: rgb(253, 242, 242);
+}
+
+
+.popup .close:hover {
+    color:  rgb(173, 137, 18);
+}
+
+
+/* formatowanie struktury popupu opisu planety (podział na poszczególne obszary) */
+.container2 {
+    display: grid;
+    grid-template-columns: 2% 29% 5% 27% 5% 27% 5%;
+    grid-template-rows: 5% 10% 10% 10% 58% 7%;
+    grid-template-areas: ". . . . . . ."
+                         ". planets_name . . . . . "
+                         ". planets_name . items . planets_ships ."
+                         ". . . items . planets_ships ."
+                         ". picture . items . planets_ships ."
+                         ". . . . . . .";
+    width: 100%;
+    height: 100%;
+}
+
+
+/* formatowanie obszaru popupu z nazwą planety */
+.planets_name_grid {
+    grid-area: planets_name;
+    margin-left: 4%;
+}
+
+
+/* formatowanie obszaru popupu z obrazkiem */
+.picture_grid {
+    grid-area: picture;
+}
+
+
+/* formatowanie obszaru popupu z listą statków */
+.planets_ships_grid {
+    grid-area: planets_ships;
+
+    background-color: rgb(158, 157, 152, 0.5);
+    border-top-left-radius: 12%;
+    border-top-right-radius: 12%;
+    border-bottom-left-radius: 12%;
+    border-bottom-right-radius: 12%;
+    box-shadow: 0 0 4px 4px rgb(224, 215, 226);
+    overflow: scroll;
+}
+
+
+/* formatowanie obszaru popupu z towarami */
+.items_grid {
+    grid-area: items;
+
+    background-color: rgb(158, 157, 152, 0.5);
+    border-top-left-radius: 12%;
+    border-top-right-radius: 12%;
+    border-bottom-left-radius: 12%;
+    border-bottom-right-radius: 12%;
+    box-shadow: 0 0 4px 4px rgb(224, 215, 226);
+    overflow: scroll;
+}
+
+
+/* formatowanie wyświetlanego w popupie obrazka */
+img {
+    display: block;
+    width: 80%;
+    margin-top: 4%;
+}
+
+
+/* dostosowanie wyglądu popupu opisu planety do urządzeń mobilnych */
+@media screen and (max-width: 1200px) {
+    .container2 {
+        display: grid;
+        grid-template-columns: 5% 42.5% 5% 42.5% 5%;
+        grid-template-rows: 5% 5% 5% 5% 30% 8% 40% 2%;
+        grid-template-areas: ". . . . ."
+                             ". planets_name . . ."
+                             ". planets_name . items ."
+                             ". . . items ."
+                             ". picture . items ."
+                             ". picture . . ."
+                             ". . . planets_ships ."
+                             ". . . . .";
+        width: 100%;
+        height: 100%;
+    }
+}
+
+
+@media screen and (max-width: 1020px) {
+    .items {
+        font-size: 2.6vh;
+    }
+
+    .headers {
+        font-size: 3.2vh;
+        line-height: 6vh;
+    }
+
+    .tittle {
+        font-size: 5vh;
+    }
+
+    .game_status {
+        font-size: 2.8vh;
+    }
+}

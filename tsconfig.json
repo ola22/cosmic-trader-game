@@ -1,0 +1,18 @@
+{
+	"files": [
+        "ts/game.ts",
+	"ts/index.ts",
+    ],
+    "compilerOptions": {
+        "esModuleInterop": true,
+        "allowJs": true,
+        "noImplicitAny": false,
+        "module": "commonjs",
+        "target": "es2017",
+	"lib": [
+       		"dom",
+       		"es7"
+    		]
+    },
+    "include": [ "*" ]
+}

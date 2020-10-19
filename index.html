@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Kosmiczny handlarz</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/startScreen.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/popupInfo.css">
+
+</head>
+<body>
+
+    <div class="container">
+        <!-- wyświetlanie tytułu gry --> 
+        <div class="tittle_grid">
+            <h1 class="tittle"> Kosmiczny handlarz </h1>
+        </div>
+
+        <!-- wyświetlanie rankingu top 10 graczy --> 
+        <div class="ranking_grid" id="ranking_id">
+            <h1 class="ranking_tittle"> Ranking graczy </h1>
+        </div>
+
+        <!-- wyświetlanie stanów pocztakowych --> 
+        <div class="start_grid" id="start_id">
+            <h1 class="ranking_tittle"> Wybierz swoją grę </h1>
+        </div>
+
+        <!-- wyświetlanie przycisku do rozpoczęcia gry-->
+        <div class="button_grid">
+            <a id="start_button" href="#popup1" onclick="showSelectorPopup()">Rozpocznij grę</a>
+        </div>
+
+        <!-- wyświetlanie przycisku do zalogowania-->
+        <div class="button_grid2">
+            <a id="start_button" href="#popup2">Zaloguj się</a>
+        </div>
+
+        <!-- wyświetlanie przycisku do rejestracji-->
+        <div class="button_grid3">
+            <a id="start_button" href="#popup3">Dodaj nowy plik startowy</a>
+        </div>
+    </div>
+
+    <!-- Wyświetlanie okienka popup do wpisywania pseudonimu -->
+    <div id="popup1" class="overlay">
+        <div id="popup1" class="popup">
+            <form action="mainScreen.html" method="GET">
+                <h2>Wprowadź swój pseudonim</h2>
+
+                <a class="close" href="#">&times;</a>
+                
+                <div class="content">
+                    <input class="input_style" type="text" name="pseudonim" id="input_pseudo" value="Tu wpisz pseudonim" required>
+                    <select name="selektor" id="names_selector"></select>
+                    <button type="submit" id="popup_button"> Start gry </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+     <!-- Wyświetlanie okienka popup do logowania -->
+     <div id="popup2" class="overlay">
+        <div id="popup2" class="popup">
+            <a class="close" href="#">&times;</a>
+
+            <input class="input_style" type="text" name="login" id="input_login" value="Tu wpisz login" required>
+            <input class="input_style" name="password" type="password" id="input_pass" value="Tu wpisz hasło" required>
+            <button type="submit" id="login_button" onclick="logPlayer()"> Zaloguj </button>
+        </div>
+    </div>
+
+     <!-- Wyświetlanie okienka popup do dodawania pliku -->
+     <div id="popup3" class="overlay">
+        <div id="popup3" class="popup">
+            <a class="close" href="#">&times;</a>
+            <input class="input_style" type="text" name="nazwa" id="input_name" value="Podaj nazwę konfiguracji" required>
+            <form enctype="multipart/form-data">
+                <input id="upload_file" type="file" accept=".json" name="files[]" size="30"></input></br></br></br>
+                <div><button id="upload_id" onclick="getFile()"> Dodaj </button></div>
+            </form>
+        </div>
+    </div>
+
+     <!-- Wyświetlanie okienka popup informacji o stanie początkowym gry -->
+     <div id="popup_info" class="overlay">
+        <div id="popup_info" class="popup">
+            <a class="close" href="#">&times;</a>
+
+            <div class="container2" id="planets_grid_popup_id">
+                <!-- Wyświetlanie nazwy konfiguracji -->
+                <div class="start_name_grid">
+                    <h1 class="name" id="start_name_id"></h1>
+                </div>
+
+                <!-- Wyświetlanie listy planet -->
+                <div class="planets_grid" id="planets_grid_id">
+                    <h1 class="headers">Planety</h1>
+                </div>
+
+                <!-- Wyświetlanie listy statków, znajdujących się na planecie-->
+                <div class="ships_grid" id="ships_grid_id">
+                    <h1 class="headers"> Statki kosmiczne </h1>
+                </div>
+
+                <!-- Wyświetlanie listy towarów, dostępnych na planecie -->
+                <div class="items_grid" id="items_grid_id">
+                    <h1 class="headers"> Dostępne towary </h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="ts/index.js"></script>
+
+</body>
+</html>

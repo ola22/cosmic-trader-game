@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Kosmiczny handlarz</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/mainScreen.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/planet.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/journeyShip.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/planetShip.css">
+
+</head>
+<body>
+
+    <div class="container">
+        <!-- Wyświetlanie pseudonimu gracza i aktualnego stanu gry -->
+        <div class="players_data_grid">
+            <h1 class="tittle"> <span id="pseudonim"> </span> </h1>
+            <h1 class="game_status" id="money"></h1>
+            <h1 class="game_status" id="currentTime"></h1>
+        </div>
+
+        <!-- Wyświetlanie listy planet -->
+        <div class="planets_grid" id="planets_grid_id">
+            <h1 class="headers"> Planety </h1>
+        </div>
+
+        <!-- Wyświetlanie listy statków kosmicznych wraz z ich połóżeniami -->
+        <div class="starships_grid" id="ships_grid_id">
+            <h1 class="headers"> Statki kosmiczne </h1>
+        </div>
+    </div>
+
+
+    <!-- Wyświtlanie okienka popup opisu planety -->
+    <div id="popup1" class="overlay">
+        <div class="popup">
+            <a class="close" href="#">&times;</a>
+            
+            <div class="container2" id="planets_grid_popup_id">
+                <!-- Wyświetlanie nazwy planety -->
+                <div class="planets_name_grid">
+                    <h1 class="tittle" id="planets_name_id"></h1>
+                </div>
+
+                <!-- Wyświetlanie listy statków, znajdujących się na planecie-->
+                <div class="planets_ships_grid" id="plantes_ships_grid_id">
+                    <h1 class="headers"> Statki kosmiczne </h1>
+                </div>
+
+                <!-- Wyświetlanie listy towarów, dostępnych na planecie -->
+                <div class="items_grid" id="items_grid_id">
+                    <h1 class="headers"> Dostępne towary </h1>
+                </div>
+
+                <!-- Wyświetlanie zdjęcia -->
+                <div class="picture_grid">
+                    <img src="jpg/planet_picture.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Wyświtlanie okienka popup opisu statku w podróży -->
+    <div id="popup2" class="overlay">
+        <div class="popup">
+            <a class="close" href="#">&times;</a>
+
+            <div class="container3">
+                <!-- Wyświetlanie nazwy statku -->
+                <div class="ships_name_grid">
+                    <h1 class="ships_tittle" id="ships_title_id"></h1>
+                </div>
+
+                <!-- Wyświetlanie maksymalnej ładownośći i położenia -->
+                <div class="capacity_grid">
+                    <h1 class="ships_data" id="location"></h1>
+                    <h1 class="ships_data" id="capacity"></h1>
+                </div>
+
+                <!-- Wyświetlanie pozostałego czasu lotu -->
+                <div class="time_counter_grid">
+                    <h1 class="ships_data" id="timer"></h1>
+                </div>
+
+                <!-- Wyświetlanie stanu załadunku -->
+                <div class="ships_items_grid" id="cargo">
+                    <h1 class="headers"> Zakupione towary </h1>
+                </div>
+
+                <!-- Wyświetlanie zdjęcia -->
+                <div class="photo_grid2">
+                    <img src="jpg/ship_flying.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Wyświtlanie okienka popup opisu statku na planecie -->
+    <div id="popup3" class="overlay">
+        <div class="popup">
+            <a class="close" href="#">&times;</a>
+
+            <div class="container4">
+                <!-- Wyświetlanie nazwy planety -->
+                <div class="ships_name_grid2">
+                    <h1 class="ships_tittle" id="ships_title2_id"></h1>
+                </div>
+
+                <!-- Wyświetlanie maksymalnej ładownośći i położenia -->
+                <div class="capacity_grid2">
+                    <h1 class="ships_data" id="location2"></h1>
+                    <h1 class="ships_data" id="capacity2"></h1>
+                </div>
+
+                <!-- Wyświtlanie stanu załadunku -->
+                <div class="ships_items_grid2" id="cargo2"></div>
+
+                <!-- Wyświetlanie pola dokonywania zakupów -->
+                <div class="shopping_grid">
+                    <h1 class="headers"> Dokonaj zakupu </h1>
+
+                    <select name="nazwa" id="item_selector"></select>
+                    <input type="number" name="quantity" id="input1" required>
+                    <button type="submit" id="buy_button"> Kupuję </button></br>
+                    
+                    <select name="nazwa2" id="item_sell_selector"></select>
+                    <input type="number" name="quantity" id="input2" required>
+                    <button type="submit" id="sell_button"> Sprzedaję </button>
+                    
+                </div>
+
+                <!-- Wyświetlanie podroży na kolejną planetę -->
+                <div class="traveling_grid">
+                    <h1 class="headers"> Ruszaj w drogę! </h1>
+                    <h1 class="items_style"> Wybierz teraz cel swojej podróży </h1>
+
+                    <select name="nazwa" id="planet_selector"></select></br>
+                    <button type="submit" id="travel_button"> Lecę! </button>
+                </div>
+
+                <!-- Wyświetlanie zdjęcia -->
+                <div class="photo_grid">
+                    <img src="jpg/ships_popup_image.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="ts/game.js"></script>
+
+</body>
+
+</html>

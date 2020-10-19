@@ -1,0 +1,118 @@
+/*
+    FORMATOWANIE EKRANU POPUP OPISU STATKU W PODRÓŻY
+*/
+
+/* ustawienia stylu wyświetlania nazwy statku */
+.ships_tittle {
+    text-decoration: overline;
+    font-family: URW Chancery L, cursive;
+    font-size: 7vh;
+    text-align: left;
+    color:  rgb(238, 231, 240);
+}
+
+
+/* ustawienia stylu wyświetlania nazwy statku */
+.ships_data {
+    line-height: 1.8vh;
+    font-family: URW Chancery L, cursive;
+    font-size: 2.6vh;
+    text-align: left;
+    color:   rgba(115, 62, 126);
+}
+
+
+/* ustawienia stylu wyświetlania nazw towarów */
+.items_style {
+    line-height: 2vh;
+    font-family: URW Chancery L, cursive;
+    font-size: 3.2vh;
+    text-align: center;
+    color:  rgb(238, 231, 240);
+}
+
+
+/* formatowanie struktury popupu opisu planety (podział na poszczególne obszary) */
+.container3 {
+    display: grid;
+    grid-template-columns: 20% 25% 5% 30% 20%;
+    grid-template-rows: 12% 20% 48% 13% 7%;
+    grid-template-areas: 
+                         ". ships_name . . ."
+                         ". . . ships_items ."
+                         ". photo2 . ships_items ."
+                         ". capacity . ships_items ."
+                         ". time_counter . . .";
+    width: 100%;
+    height: 100%;
+}
+
+
+/* formatowanie obszaru licznika pozostałego czasu */
+.time_counter_grid {
+    margin-left: 8%;
+    grid-area: time_counter;
+}
+
+
+/* formatowanie obszaru popupu z nazwą statku */
+.ships_name_grid {
+    grid-area: ships_name;
+    margin-left: 8%;
+}
+
+
+/* formatowanie obszaru popupu z danymi położenia */
+.capacity_grid {
+    grid-area: capacity;
+    margin-left: 8%;
+}
+
+
+.photo_grid2 {
+    grid-area: photo2;
+}
+
+
+/* formatowanie obszaru popupu z listą towarów statku */
+.ships_items_grid {
+    grid-area: ships_items;
+
+    background-color: rgba(115, 62, 126, 0.452);
+    border-top-left-radius: 12%;
+    border-top-right-radius: 12%;
+    border-bottom-left-radius: 12%;
+    border-bottom-right-radius: 12%;
+    box-shadow: 0 0 6px 6px rgb(224, 215, 226);
+    overflow: scroll;
+}
+
+
+/* dostosowanie wyglądu popupu opisu planety do urządzeń mobilnych */
+@media screen and (max-width: 1020px) {
+    .container3 {
+        display: grid;
+        grid-template-columns: 10% 30% 10% 30% 20%;
+        grid-template-rows: 12% 10% 13% 58% 7%;
+        grid-template-areas: 
+                             ". ships_name . . ."
+                             ". . . ships_items ."
+                             ". capacity . ships_items ."
+                             ". . . ships_items ."
+                             ". . . . .";
+        width: 100%;
+        height: 100%;
+    }
+
+    .items_style {
+        font-size: 2.6vh;
+    }
+
+    .ships_tittle {
+        font-size: 5vh;
+    }
+
+    .ships_data {
+        font-size: 2.8vh;
+    }
+}

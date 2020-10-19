@@ -1,0 +1,371 @@
+/*
+    FORMATOWANIE EKRANU STARTOWEGO GRY
+*/
+
+
+
+
+/* formatowanie tła ekranu startowego */
+body {
+    background-image: url('../jpg/start_background.jpg');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+
+/* ustawienia stylu wyświetlania tytułu gry */
+.tittle {
+    text-decoration: underline;
+    font-family: Bookman, URW Bookman L, serif;
+    font-size: 4.8vh;
+    text-align: center;
+    color:  rgb(196, 165, 206);
+}
+
+
+/* ustawienia stylu wyświetlania napisu ranking */
+.ranking_tittle {
+    text-decoration: underline double;
+    font-family: Bookman, URW Bookman L, serif;
+    font-size: 4vh;
+    line-height: 8vh;
+    text-align: center;
+    color:  rgb(195, 180, 199);
+}
+
+
+/* ustawienia stylu wyświetlania nazwisk top graczy */
+.players_names {
+    font-family: URW Chancery L, cursive;
+    font-size: 2.9vh;
+    text-align: center;
+    color:  rgb(217, 190, 224);
+}
+
+
+/* formatowanie overlay dla okienka popup */
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+    overflow: auto;
+}
+
+
+.overlay:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+
+/* formatowanie okienka popup */
+.popup {
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 5px;
+    position: relative;
+    transition: all 5s ease-in-out;
+    box-shadow: 0 0 4px 4px rgb(224, 215, 226);
+}
+
+
+.popup .content {
+    overflow: auto;
+}
+
+
+.popup h2 {
+    margin-top: 4%;
+    font-size: 3vh;
+    font-family: Tahoma, Arial, sans-serif;
+    color: #333;
+}
+
+
+.popup .close {
+    position: absolute;
+    top: 2%;
+    right: 4%;
+    transition: all 200ms;
+    font-size: 4vh;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+}
+
+
+.popup .close:hover {
+    color: rgb(209, 6, 216);
+}
+
+
+/* formatowanie pola wpisywania pseudonimu */
+.input_style {
+    border: 1px solid #999999;
+    width: 80%;
+    height: 20px;
+    padding: 1vh;
+    border-radius: 12%;
+    margin-bottom: 6%;
+    font-style: bold;
+    font-size: 2.5vh;
+    background-color: rgb(230, 202, 228);
+    color :rgb(209, 6, 216);
+}
+
+
+
+/* formatowanie struktury strony (podział na poszczególne obszary) */
+.container {
+    display: grid;
+    grid-template-columns: 5% 25% 10% 20% 10% 25% 5%;
+    grid-template-rows: 2% 8% 7% 25% 10% 5% 10% 5% 10% 8% 10%;
+    grid-template-areas: ". . . . . . ."
+                         "tittle tittle tittle tittle tittle tittle tittle"
+                         ". . . . . . ."
+                         ". start . . . ranking ."
+                         ". start . button2 . ranking ."
+                         ". start . . . ranking ."
+                         ". start . button3 . ranking ."
+                         ". start . . . ranking ."
+                         ". start . button . ranking ."
+                         ". start . . . ranking ."
+                         ". . . . . . .";
+    width: 100vw;
+    height: 100vh;
+}
+
+
+/* formatowanie obszaru strony, na którym znajduje się ranking */
+.ranking_grid {
+    grid-area: ranking;
+    overflow: scroll;
+    background-color: rgba(119, 82, 115, 0.5);
+    border-top-left-radius: 12%;
+    border-top-right-radius: 12%;
+    border-bottom-left-radius: 12%;
+    border-bottom-right-radius: 12%;
+    box-shadow: 0 0 20px 10px rgb(224, 215, 226);
+
+    scrollbar-color:rgb(156, 83, 179);
+}
+
+
+/* formatowanie obszaru strony, na którym znajduje się wybór sytuacji początkowej */
+.start_grid {
+    grid-area: start;
+    overflow: scroll;
+    background-color: rgba(119, 82, 115, 0.5);
+    border-top-left-radius: 12%;
+    border-top-right-radius: 12%;
+    border-bottom-left-radius: 12%;
+    border-bottom-right-radius: 12%;
+    box-shadow: 0 0 20px 10px rgb(224, 215, 226);
+
+    scrollbar-color:rgb(156, 83, 179);
+}
+
+
+/* formatowanie obszaru strony, na którym znajduje się obrazek */
+.tittle_grid {
+    grid-area: tittle;
+}
+
+
+/* formatowanie obszaru strony, na którym znajduje się przycisk, do rozpoczęcia gry */
+.button_grid {
+    grid-area: button;
+    
+    background-color: rgba(119, 82, 115, 0.8);
+    box-shadow: 0 0 20px 10px rgb(224, 215, 226);
+    border-top-left-radius: 12%;
+    border-top-right-radius: 12%;
+    border-bottom-left-radius: 12%;
+    border-bottom-right-radius: 12%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* formatowanie obszaru strony, na którym znajduje się przycisk, do rozpoczęcia gry */
+.button_grid2 {
+    grid-area: button2;
+    
+    background-color: rgba(119, 82, 115, 0.8);
+    box-shadow: 0 0 20px 10px rgb(224, 215, 226);
+    border-top-left-radius: 12%;
+    border-top-right-radius: 12%;
+    border-bottom-left-radius: 12%;
+    border-bottom-right-radius: 12%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* formatowanie obszaru strony, na którym znajduje się przycisk, do rozpoczęcia gry */
+.button_grid3 {
+    grid-area: button3;
+    
+    background-color: rgba(119, 82, 115, 0.8);
+    box-shadow: 0 0 20px 10px rgb(224, 215, 226);
+    border-top-left-radius: 12%;
+    border-top-right-radius: 12%;
+    border-bottom-left-radius: 12%;
+    border-bottom-right-radius: 12%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* fomratowanie sytuacji początkowych */
+#link {
+    line-height: 2vh;
+    font-family: URW Chancery L, cursive;
+    font-size: 3.2vh;
+    text-align: center;
+    color:  rgb(238, 231, 240);
+}
+
+
+/* formatowanie wyświetlania linku, do rozpoczęcia gry */
+#start_button {
+    text-decoration: none;
+    text-align: center;
+    font-style: italic bold;
+    font-size: 3.4vh;
+    font-family: Bookman, URW Bookman L, serif;
+    color:  rgb(219, 202, 223);
+}
+
+
+/* formatowanie przycisku rozpoczęcia gry */
+#popup_button {
+    margin-left: 50%;
+    text-align: right;
+    font-style: italic bold;
+    font-size: 2.5vh;
+    font-family: Bookman, URW Bookman L, serif;
+    color:  rgb(34, 33, 34);
+}
+
+
+#upload_id {
+    margin-left: 40%;
+    text-align: right;
+    font-style: italic bold;
+    font-size: 2.5vh;
+    font-family: Bookman, URW Bookman L, serif;
+    color:  rgb(34, 33, 34);
+}
+
+
+
+#login_button {
+    margin-left: 50%;
+    text-align: right;
+    font-style: italic bold;
+    font-size: 2.5vh;
+    font-family: Bookman, URW Bookman L, serif;
+    color:  rgb(34, 33, 34);
+}
+
+
+#upload_file {
+    margin-top: 2%;
+    margin-left: 6%;
+    text-align: right;
+    font-style: italic bold;
+    font-size: 2.5vh;
+    font-family: Bookman, URW Bookman L, serif;
+    color:  rgb(34, 33, 34);
+}
+
+
+#popup_button:hover {
+    color: rgb(209, 6, 216);
+}
+
+
+/* formatowanie kolejnych okien popup */
+#popup1 .popup {
+    margin: 20% auto;
+    width: 35%;
+}
+
+
+#popup2 .popup {
+    margin: 20% auto;
+    width: 35%;
+}
+
+
+#popup3 .popup {
+    margin: 20% auto;
+    width: 35%;
+    height: 25%;
+}
+
+
+/* dostosowanie wyglądu strony do urządzeń mobilnych */
+@media screen and (max-width: 1150px) {
+    .container {
+        display: grid;
+        grid-template-columns: 25% 50% 25%;
+        grid-template-rows: 15% 5% 30% 5% 30% 10% 5% 5% 5% 5% 5% 5%;
+        grid-template-areas: ". tittle ."
+                             ". . ."
+                             ". ranking ."
+                             ". . ."
+                             ". start ."
+                             ". . ."
+                             ". button2 ."
+                             ". . ."
+                             ". button3 ."
+                             ". . ."
+                             ". button ."
+                             ". . .";
+        width: 100vw;
+        height: 100vh;
+    }
+
+    #popup_button {
+        margin-left: 20%;
+    }
+}
+
+
+@media screen and (max-width: 1000px) {
+    .players_names {
+        font-size: 2.3vh;
+    }
+
+    .ranking_tittle {
+        font-size: 3vh;
+        line-height: 6vh;
+    }
+
+    .tittle {
+        font-size: 4vh;
+    }
+
+    a {
+        font-size: 2.8vh;
+    }
+}

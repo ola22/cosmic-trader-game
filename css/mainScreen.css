@@ -1,0 +1,152 @@
+/* formatowanie tła ekranu startowego */
+body {
+    background-image: url('../jpg/main_background.jpg');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+
+/* formatowanie linków do planet */
+a {
+    text-decoration: none;
+}
+
+
+/* ustawienia stylu wyświetlania pseudonimu gracza */
+.tittle {
+    text-decoration: overline;
+    font-family: URW Chancery L, cursive;
+    font-size: 7vh;
+    text-align: left;
+    color:  rgb(238, 231, 240);
+}
+
+
+/* ustawienia stylu wyświetlania aktualnego stanu gry */
+.game_status {
+    line-height: 1.8vh;
+    font-family: URW Chancery L, cursive;
+    font-size: 3.2vh;
+    text-align: left;
+    color:   rgb(226, 164, 83);
+}
+
+
+/* ustawienia stylu wyświetlania nagłówów(planety i statki) */
+.headers {
+    text-decoration: underline;
+    font-family: URW Chancery L, cursive;
+    font-size: 5vh;
+    text-align: center;
+    margin-top: 12%;
+    color:  rgb(238, 231, 240);
+}
+
+
+/* ustawienia stylu wyświetlania nazw planet i statków kosmicznych */
+.items {
+    line-height: 2vh;
+    font-family: URW Chancery L, cursive;
+    font-size: 3.2vh;
+    text-align: center;
+    color:  rgb(238, 231, 240);
+}
+
+
+/* podświetlanie wybranej nazwy planety, statu kosmicznego */
+.items:hover {
+    color: rgb(173, 137, 18);
+}
+
+
+/* formatowanie struktury strony (podział na poszczególne obszary) */
+.container {
+    display: grid;
+    grid-template-columns: 5% 15% 11% 27% 8% 27% 7%;
+    grid-template-rows: 10% 5% 5% 60% 20%;
+    grid-template-areas: ". . . . . . ."
+                         ". players_data . . . . . "
+                         ". players_data . planets . starships ."
+                         ". . . planets . starships ."
+                         ". . . . . . .";
+    width: 100wv;
+    height: 100hv;
+}
+
+
+/* formatowanie obszaru strony, na którym znajdują się dane gracza */
+.players_data_grid {
+    grid-area: players_data;
+    margin-top: 15%;
+}
+
+
+/* formatowanie obszaru strony, na którym znajduje się lista planet */
+.planets_grid {
+    grid-area: planets;
+
+    overflow: scroll;
+    background-color: rgba(148, 135, 79, 0.5);
+    border-top-left-radius: 12%;
+    border-top-right-radius: 12%;
+    border-bottom-left-radius: 12%;
+    border-bottom-right-radius: 12%;
+    box-shadow: 0 0 20px 10px rgb(224, 215, 226);
+}
+
+
+/* formatowanie obszaru strony, na którym znajduje się lista statków kosmicznych */
+.starships_grid {
+    grid-area: starships;
+
+    overflow: scroll;
+    background-color: rgba(156, 140, 68, 0.5);
+    border-top-left-radius: 12%;
+    border-top-right-radius: 12%;
+    border-bottom-left-radius: 12%;
+    border-bottom-right-radius: 12%;
+    box-shadow: 0 0 20px 10px rgb(224, 215, 226);
+}
+
+
+/* dostosowanie wyglądu strony do urządzeń mobilnych */
+@media screen and (max-width: 1200px) {
+    .container {
+        display: grid;
+        grid-template-columns: 5% 20% 15% 45% 15%;
+        grid-template-rows: 5% 15% 25% 10% 40% 5%;
+        grid-template-areas: ". . . . ."
+                             ". players_data . planets ."
+                             ". . . planets ."
+                             ". . . . ."
+                             ". . . starships ."
+                             ". . . . .";
+        width: 100vw;
+        height: 100vh;
+    }
+}
+
+
+@media screen and (max-width: 1020px) {
+    .items {
+        font-size: 2.6vh;
+    }
+
+    .headers {
+        font-size: 3.2vh;
+        line-height: 6vh;
+    }
+
+    .tittle {
+        font-size: 5vh;
+    }
+
+    .game_status {
+        font-size: 2.8vh;
+    }
+}
